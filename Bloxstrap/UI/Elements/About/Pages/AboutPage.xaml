@@ -97,6 +97,7 @@
 
             <controls:Expander Grid.Column="0" Margin="0,0,4,0" HeaderIcon="Code24" HeaderText="{x:Static resources:Strings.Menu_About_Contributors_Code}" IsExpanded="True">
                 <StackPanel>
+                    <controls:MarkdownTextBlock MarkdownText="[NetSoftworks](https://github.com/netsoftwork)" />
                     <controls:MarkdownTextBlock MarkdownText="[return_request](https://github.com/returnrqt)" />
                     <controls:MarkdownTextBlock MarkdownText="[Alexa](https://github.com/GoingCrazyDude/)" />
                     <controls:MarkdownTextBlock MarkdownText="[pizzaboxer](https://github.com/pizzaboxer)" />
