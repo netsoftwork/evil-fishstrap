@@ -13,10 +13,10 @@
     Title="{Binding Path=Title, Mode=OneTime}"
     Width="1000"
     Height="500"
+    ExtendsContentIntoTitleBar="True"
     d:DataContext="{d:DesignInstance dmodels:BootstrapperEditorWindowViewModel,
                                      IsDesignTimeCreatable=True}"
     Background="{ui:ThemeResource ApplicationBackgroundBrush}"
-    ExtendsContentIntoTitleBar="True"
     Closing="OnClosing"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
