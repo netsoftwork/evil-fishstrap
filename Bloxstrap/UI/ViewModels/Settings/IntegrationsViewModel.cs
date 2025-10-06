@@ -84,19 +84,17 @@ namespace Bloxstrap.UI.ViewModels.Settings
             }
         }
 
+        // TODO rename to serverlocation
         public bool ShowServerDetailsEnabled
         {
             get => App.Settings.Prop.ShowServerDetails;
             set => App.Settings.Prop.ShowServerDetails = value;
         }
 
-        public bool PlayerLogsEnabled
+        public bool ShowServerUptimeEnabled
         {
-            get => App.FastFlags.GetPreset("Players.LogLevel") == "trace"; // we r using this to determine if its enabled
-            set {
-                App.FastFlags.SetPreset("Players.LogLevel", value ? "trace" : null);
-                App.FastFlags.SetPreset("Players.LogPattern", value ? "ExpChat/mountClientApp" : null);
-            }
+            get => App.Settings.Prop.ShowServerUptime;
+            set => App.Settings.Prop.ShowServerUptime = value;
         }
 
         public bool DiscordActivityEnabled
@@ -137,10 +135,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
         public bool MultiInstanceLaunchingEnabled
         {
             get => App.Settings.Prop.MultiInstanceLaunching;
-            set  {
-                App.Settings.Prop.MultiInstanceLaunching = value;
-                App.FastFlags.SetPreset("Instances.WndCheck", value ? "0" : null);
-            }
+            set => App.Settings.Prop.MultiInstanceLaunching = value;
         }
 
         public ObservableCollection<CustomIntegration> CustomIntegrations
