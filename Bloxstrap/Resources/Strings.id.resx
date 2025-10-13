@@ -1030,9 +1030,6 @@ Jika tidak, harap laporkan pengecualian ini kepada pengelola fork ini. JANGAN la
   <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
     <value>Harap tunggu untuk pencopotan instalasi selesai.</value>
   </data>
-  <data name="About.Title" xml:space="preserve">
-    <value>Tentang Fishstrap</value>
-  </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>Lisensi</value>
     <comment>Referring to code licenses; see https://opensource.org/licenses for example</comment>
@@ -1451,6 +1448,9 @@ Beralih ke {1}.</value>
   <data name="Common.Edit" xml:space="preserve">
     <value>Ubah</value>
   </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>Tentang Fishstrap</value>
+  </data>
   <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
     <value>Versi menu escape yang diinginkan</value>
   </data>
@@ -1492,5 +1492,17 @@ Beralih ke {1}.</value>
   </data>
   <data name="Menu.About.Licenses.Apache" xml:space="preserve">
     <value>Lisensi Apache 2.0</value>
+  </data>
+  <data name="Menu.GBSEditor.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Graphics.Description" xml:space="preserve">
+    <value />
   </data>
 </root>

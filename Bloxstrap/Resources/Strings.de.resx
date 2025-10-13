@@ -1029,9 +1029,6 @@ Falls nicht, melde diese Ausnahme bitte an die Entwickler dieses Forks. Melde di
   <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
     <value>Bitte warte, bis die Deinstallation abgeschlossen ist.</value>
   </data>
-  <data name="About.Title" xml:space="preserve">
-    <value>Über Fishstrap</value>
-  </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>Lizenzen</value>
     <comment>Referring to code licenses; see https://opensource.org/licenses for example</comment>
@@ -1462,6 +1459,9 @@ Es wurde automatisch {1} ausgewählt.</value>
   <data name="Common.Edit" xml:space="preserve">
     <value>Bearbeiten</value>
   </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>Über Fishstrap</value>
+  </data>
   <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
     <value>Bevorzugte Version des Escape Menüs</value>
   </data>
@@ -1503,5 +1503,17 @@ Es wurde automatisch {1} ausgewählt.</value>
   </data>
   <data name="Menu.About.Licenses.Apache" xml:space="preserve">
     <value>Apache-Lizenz 2.0</value>
+  </data>
+  <data name="Menu.GBSEditor.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Graphics.Description" xml:space="preserve">
+    <value />
   </data>
 </root>

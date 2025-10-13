@@ -1029,9 +1029,6 @@ Dacă nu, atunci vă rugăm să raportați această excepție deținătorilor ac
   <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
     <value>Așteptați ca dezinstalarea să se termine.</value>
   </data>
-  <data name="About.Title" xml:space="preserve">
-    <value>Despre Fishstrap</value>
-  </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>Licențe</value>
     <comment>Referring to code licenses; see https://opensource.org/licenses for example</comment>
@@ -1462,6 +1459,9 @@ Setat implicit la {1}.</value>
   <data name="Common.Edit" xml:space="preserve">
     <value>Editează</value>
   </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>Despre Fishstrap</value>
+  </data>
   <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
     <value>Versiunea preferată a meniului de escape</value>
   </data>
@@ -1503,5 +1503,17 @@ Setat implicit la {1}.</value>
   </data>
   <data name="Menu.About.Licenses.Apache" xml:space="preserve">
     <value>Licență Apache 2.0</value>
+  </data>
+  <data name="Menu.GBSEditor.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Graphics.Description" xml:space="preserve">
+    <value />
   </data>
 </root>
