@@ -89,7 +89,8 @@ namespace Bloxstrap.Models.Entities
 
         public string GetInviteDeeplink(bool launchData = true)
         {
-            string deeplink = $"https://www.fishstrap.app/api/joingame?placeId={PlaceId}";
+            string deeplink = $"{App.RemoteData.Prop.DeeplinkUrl}?placeId={PlaceId}"; // if our data isnt loaded it uses dummy data
+                                                                                      // we only wait for important data
 
             if (ServerType == ServerType.Private) // thats not going to work
                 deeplink += "&accessCode=" + AccessCode;
@@ -123,7 +124,7 @@ namespace Bloxstrap.Models.Entities
             DateTime? firstSeen = DateTime.UtcNow;
             try
             {
-                var serverTimeRaw = await Http.GetJson<RoValraTimeResponse>($"https://apis.rovalra.com/v1/server_details?place_id={PlaceId}&server_ids={JobId}");
+                var serverTimeRaw = await Http.GetJson<RoValraTimeResponse>($"https://apis.rovalra.com/v1/servers/details?place_id={PlaceId}&server_ids={JobId}");
 
                 var serverBody = new RoValraProcessServerBody
                 {
