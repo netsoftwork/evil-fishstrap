@@ -1699,7 +1699,7 @@ Defaulting to {1}.</value>
     <value>Waiting for data</value>
   </data>
   <data name="Menu.FastFlags.EditorInfo" xml:space="preserve">
-    <value>Fast Flag editor only works on Roblox studio</value>
+    <value>Roblox only applies whitelisted FFlags. Double click to learn more.</value>
   </data>
   <data name="Common.Geometry" xml:space="preserve">
     <value>Geometry</value>
