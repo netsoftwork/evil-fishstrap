@@ -3639,6 +3639,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Choose the FRM quality that Roblox should use..
+        /// </summary>
+        public static string Menu_FastFlags_FRMQualityOverride_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.FRMQualityOverride.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FRM Quality Override.
+        /// </summary>
+        public static string Menu_FastFlags_FRMQualityOverride_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.FRMQualityOverride.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Control how Roblox renders 3D geometry..
         /// </summary>
         public static string Menu_FastFlags_Geometry_Description {

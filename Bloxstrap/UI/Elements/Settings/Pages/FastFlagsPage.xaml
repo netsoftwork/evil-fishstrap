@@ -91,7 +91,42 @@
                     <ui:ToggleSwitch IsChecked="{Binding FixDisplayScaling, Mode=TwoWay}" />
                 </controls:OptionControl>
 
-                <controls:OptionControl 
+        <ui:CardExpander Margin="0,8,0,0" IsExpanded="{Binding FRMQualityOverrideEnabled, Mode=OneWay}" Style="{StaticResource NoUserExpansionCardExpanderStyle}">
+            <ui:CardExpander.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0">
+                        <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlags_FRMQualityOverride_Title}" />
+                        <TextBlock FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_FRMQualityOverride_Description}" 
+                           Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    </StackPanel>
+
+                    <ui:ToggleSwitch Grid.Column="1" IsChecked="{Binding FRMQualityOverrideEnabled, Mode=TwoWay}" />
+                </Grid>
+            </ui:CardExpander.Header>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="{x:Static resources:Strings.Common_LowestQuality}" Grid.Column="0" />
+                <Slider Grid.Column="1" Margin="8,0,8,0" Minimum="1" Maximum="21" TickFrequency="1" IsSnapToTickEnabled="True" Value="{Binding FRMQualityOverride, Mode=TwoWay}" />
+                <TextBlock Text="{x:Static resources:Strings.Common_HighestQuality}" Grid.Column="2" />
+                <Border Margin="8,-4,0,0" Grid.Column="3" Width="30" BorderBrush="{ui:ThemeResource SolidBackgroundFillColorSecondarybrush}" Background="{ui:ThemeResource SolidBackgroundFillColorSecondarybrush}" BorderThickness="1" CornerRadius="4">
+                    <TextBlock HorizontalAlignment="Center" Padding="4" VerticalAlignment="Center" TextAlignment="Center" Text="{Binding FRMQualityOverride, Mode=TwoWay}" />
+                </Border>
+            </Grid>
+        </ui:CardExpander>
+
+        <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_FastFlags_Presets_RenderingMode_Title}">
                     <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding RenderingModes.Keys, Mode=OneTime}" Text="{Binding SelectedRenderingMode, Mode=TwoWay}">
                         <ComboBox.ItemTemplate>

@@ -83,6 +83,32 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         private static readonly string[] LODLevels = { "L0", "L12", "L23", "L34" };
 
+        public bool FRMQualityOverrideEnabled
+        {
+            get => App.FastFlags.GetPreset("Rendering.FRMQualityOverride") != null;
+            set
+            {
+                if (value)
+                    FRMQualityOverride = 21;
+                else
+                    App.FastFlags.SetPreset("Rendering.FRMQualityOverride", null);
+
+                OnPropertyChanged(nameof(FRMQualityOverride));
+                OnPropertyChanged(nameof(FRMQualityOverrideEnabled));
+            }
+        }
+
+        public int FRMQualityOverride
+        {
+            get => int.TryParse(App.FastFlags.GetPreset("Rendering.FRMQualityOverride"), out var x) ? x : 21;
+            set
+            {
+                App.FastFlags.SetPreset("Rendering.FRMQualityOverride", value);
+
+                OnPropertyChanged(nameof(FRMQualityOverride));
+            }
+        }
+
         public bool MeshQualityEnabled
         {
             get => App.FastFlags.GetPreset("Geometry.MeshLOD.Static") != null;

@@ -1785,4 +1785,10 @@ Defaulting to {1}.</value>
   <data name="Menu.GBSEditor.ReadOnly.Description" xml:space="preserve">
     <value>Prevent Roblox from overriding global settings.</value>
   </data>
+  <data name="Menu.FastFlags.FRMQualityOverride.Title" xml:space="preserve">
+    <value>FRM Quality Override</value>
+  </data>
+  <data name="Menu.FastFlags.FRMQualityOverride.Description" xml:space="preserve">
+    <value>Choose the FRM quality that Roblox should use.</value>
+  </data>
 </root>
