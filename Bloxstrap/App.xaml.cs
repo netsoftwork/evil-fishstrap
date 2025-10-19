@@ -67,6 +67,8 @@ namespace Bloxstrap
 
         public static readonly GBSEditor GlobalSettings = new();
 
+        public static readonly CookiesManager Cookies = new();
+
         public static readonly HttpClient HttpClient = new(
             new HttpClientLoggingHandler(
                 new HttpClientHandler { AutomaticDecompression = DecompressionMethods.All }
@@ -317,6 +319,9 @@ namespace Bloxstrap
                 RobloxState.Load();
                 FastFlags.Load();
                 GlobalSettings.Load();
+
+                if (Settings.Prop.AllowCookieAccess)
+                    Task.Run(Cookies.LoadCookies);
 
                 if (!Locale.SupportedLocales.ContainsKey(Settings.Prop.Locale))
                 {

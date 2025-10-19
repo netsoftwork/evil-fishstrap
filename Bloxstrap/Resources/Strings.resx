@@ -1791,4 +1791,10 @@ Defaulting to {1}.</value>
   <data name="Menu.FastFlags.FRMQualityOverride.Description" xml:space="preserve">
     <value>Choose the FRM quality that Roblox should use.</value>
   </data>
+  <data name="Menu.Bootstrapper.AllowCookieAccess.Title" xml:space="preserve">
+    <value>Allow Fishstrap to access your Roblox account</value>
+  </data>
+  <data name="Menu.Bootstrapper.AllowCookieAccess.Description" xml:space="preserve">
+    <value>Provide access to Roblox's APIs with your authentication cookie.</value>
+  </data>
 </root>

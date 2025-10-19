@@ -3152,6 +3152,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Provide access to Roblox&apos;s APIs with your authentication cookie..
+        /// </summary>
+        public static string Menu_Bootstrapper_AllowCookieAccess_Description {
+            get {
+                return ResourceManager.GetString("Menu.Bootstrapper.AllowCookieAccess.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Allow Fishstrap to access your Roblox account.
+        /// </summary>
+        public static string Menu_Bootstrapper_AllowCookieAccess_Title {
+            get {
+                return ResourceManager.GetString("Menu.Bootstrapper.AllowCookieAccess.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Files older than set amount will be deleted..
         /// </summary>
         public static string Menu_Bootstrapper_Cleaner_Age_Description {

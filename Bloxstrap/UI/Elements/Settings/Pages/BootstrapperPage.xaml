@@ -18,6 +18,12 @@
         <TextBlock Margin="0,0,0,8" Text="{x:Static resources:Strings.Menu_Behaviour_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
         <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_Bootstrapper_AllowCookieAccess_Title}"
+            Description="{x:Static resources:Strings.Menu_Bootstrapper_AllowCookieAccess_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding CookieAccess, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_Behaviour_ConfirmLaunches_Title}"
             Description="{x:Static resources:Strings.Menu_Behaviour_ConfirmLaunches_Description}">
             <ui:ToggleSwitch IsChecked="{Binding ConfirmLaunches, Mode=TwoWay}" />

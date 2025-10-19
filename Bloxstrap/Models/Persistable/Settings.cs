@@ -4,6 +4,9 @@ namespace Bloxstrap.Models.Persistable
 {
     public class Settings
     {
+        // uh
+        public bool AllowCookieAccess { get; set; } = false;
+
         // bloxstrap configuration
         public BootstrapperStyle BootstrapperStyle { get; set; } = BootstrapperStyle.FluentAeroDialog;
         public BootstrapperIcon BootstrapperIcon { get; set; } = BootstrapperIcon.IconBloxstrap;
