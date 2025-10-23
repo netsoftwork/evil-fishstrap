@@ -109,7 +109,7 @@ namespace Bloxstrap
         // we will use this later on since we have to wait for remote data
         private async Task SetupPackageDictionaries()
         {
-            await App.RemoteData.WaitUntilDataFetched();
+            await App.RemoteData.WaitUntilDataFetched(); // does this even work?
 
             var localData = App.RemoteData.Prop.PackageMaps[IsStudioLaunch ? "studio" : "player"];
             var commonData = App.RemoteData.Prop.PackageMaps.CommonPackageMap;
@@ -262,6 +262,11 @@ namespace Bloxstrap
 
             if (!_noConnection)
             {
+                if (App.RemoteData.LoadedState == GenericTriState.Unknown) // we dont want it to flicker
+                    SetStatus(Strings.Bootstrapper_Status_WaitingForData);
+
+                await SetupPackageDictionaries(); // mods also require it
+
                 // we are checking if eurotrucks2 exists in client directory
                 if (
                     File.Exists(Path.Combine(AppData.Directory, App.RobloxAnselAppName))
@@ -1146,11 +1151,6 @@ namespace Bloxstrap
             {
                 return;
             }
-
-            if (App.RemoteData.LoadedState == GenericTriState.Unknown) // we dont want it to flicker
-                SetStatus(Strings.Bootstrapper_Status_WaitingForData);
-
-            await SetupPackageDictionaries();
 
             if (String.IsNullOrEmpty(AppData.State.VersionGuid))
                 SetStatus(Strings.Bootstrapper_Status_Installing);

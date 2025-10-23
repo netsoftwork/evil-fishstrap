@@ -23,6 +23,7 @@ namespace Bloxstrap
             { "Rendering.ManualFullscreen", "FFlagHandleAltEnterFullscreenManually" },
             { "Rendering.DisableScaling", "DFFlagDisableDPIScale" },
             { "Rendering.MSAA", "FIntDebugForceMSAASamples" },
+            { "Rendering.FRMQualityOverride", "DFIntDebugFRMQualityLevelOverride" },
 
             // Rendering engines
             { "Rendering.Mode.DisableD3D11", "FFlagDebugGraphicsDisableDirect3D11" },

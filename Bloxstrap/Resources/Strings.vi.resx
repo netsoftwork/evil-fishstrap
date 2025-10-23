@@ -610,32 +610,11 @@ Bạn có chắc chắn muốn tiếp tục không?</value>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>Direct3D [toàn màn hình]({0}) bằng Alt+Enter đã được bật theo mặc định.</value>
   </data>
-  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>Phiên bản menu thoát ưa thích</value>
-  </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
     <value>Roblox giảm chất lượng hiển thị của bạn tùy thuộc vào cách hiển thị được điều chỉnh trong Windows.</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
     <value>Giữ chất lượng hiển thị với tỷ lệ hiển thị</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>Đặt thành 0 nếu muốn sử dụng bộ mở khóa khung hình mặc định của Roblox.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
-    <value>Giới hạn tốc độ khung hình</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>Bật/Tắt bằng [tổ hợp phím]({0}). Chỉ hoạt động nếu đang ở trong [Nhóm Fishstrap]({1}).</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
-    <value>Bật tính năng ẩn giao diện người dùng</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>Chọn một cái sẽ bắc buộc bật trong tất cả các trò chơi. [Hãy cẩn thận, có thể gây ra các lỗi ánh sáng!]({0})</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
-    <value>Công nghệ ánh sáng ưa thích</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>Chế độ kết xuất</value>
@@ -793,12 +772,6 @@ Chọn 'Không' sẽ bỏ qua cảnh báo này và tiếp tục cài đặt.</va
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
     <value>Mang lại âm thanh nhân vật cũ</value>
   </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>Mang lại tiếng chết 'oof' cũ.</value>
-  </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
-    <value>Sử dụng tiếng chết cũ</value>
-  </data>
   <data name="Menu.Mods.Title" xml:space="preserve">
     <value>Mod</value>
   </data>
@@ -853,12 +826,6 @@ Chọn 'Không' sẽ bỏ qua cảnh báo này và tiếp tục cài đặt.</va
   <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
     <value>Chất lượng khử răng cưa (MSAA)</value>
   </data>
-  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
-    <value>Vô hiệu hóa các hiệu ứng xử lý hậu kỳ</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
-    <value>Tắt thanh tiêu đề toàn màn hình</value>
-  </data>
   <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
     <value>Ngăn không cho thanh tiêu đề hiển thị mỗi khi bạn di chuyển chuột lên đầu màn hình.</value>
   </data>
@@ -876,18 +843,6 @@ Chọn 'Không' sẽ bỏ qua cảnh báo này và tiếp tục cài đặt.</va
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
     <value>Mức 3 (Cao nhất)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
-    <value>Vô hiệu hóa bóng của người chơi</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
-    <value>Kích cỡ phông chữ</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
-    <value>Giá trị mặc định là 1. Điều chỉnh nó nếu bạn dùng phông chữ tùy chình.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
-    <value>Vô hiệu hóa cấu tạo bề mặt địa hình</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
     <value>Fishstrap không thể tải xuống Roblox</value>
@@ -1075,9 +1030,6 @@ Nếu không, thì hãy báo cáo vấn đề này đến người quản lí c�
   </data>
   <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
     <value>Hãy đợi cho quá trình gỡ cài đặt được hoàn thành.</value>
-  </data>
-  <data name="About.Title" xml:space="preserve">
-    <value>Về Fishstrap</value>
   </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>Các giấy phép</value>
@@ -1271,6 +1223,9 @@ Xin hãy đóng các ứng dụng đang sử dụng các tập tin của Roblox,
   <data name="Menu.Channel.RobloxUpgrades" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
   </data>
+  <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
+    <value>Roblox không còn hỗ trợ Windows 7 hoặc 8.1 nữa. Xin hãy nâng cấp lên Windows 10 hoặc mới hơn.</value>
+  </data>
   <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
     <value>Đang tải xuống phiên bản mới nhất của Fishstrap...</value>
   </data>
@@ -1282,24 +1237,6 @@ Xin hãy đóng các ứng dụng đang sử dụng các tập tin của Roblox,
   </data>
   <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
     <value>Mọi thứ đều ẩn danh và không có gì xấu xa cả, thật đấy. Để biết chúng tôi thu thập những gì và lý do, hãy xem [chính sách quyền riêng tư]({0}) của chúng tôi.</value>
-  </data>
-  <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
-    <value>Roblox không còn hỗ trợ Windows 7 hoặc 8.1 nữa. Xin hãy nâng cấp lên Windows 10 hoặc mới hơn.</value>
-  </data>
-  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
-    <value>Không thể giải nén các tập tin</value>
-  </data>
-  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
-    <value>Một số nội dung có thể bị thiếu. Cài đặt lại Roblox để sửa lỗi này.</value>
-  </data>
-  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
-    <value>Không thể áp dụng các chỉnh sửa</value>
-  </data>
-  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
-    <value>Các chỉnh sửa sẽ không được áp dụng trong lần chạy này.</value>
-  </data>
-  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
-    <value>Giấy phép Apache 2.0</value>
   </data>
   <data name="Enums.CustomThemeTemplate.Blank" xml:space="preserve">
     <value>Trống</value>
@@ -1422,12 +1359,6 @@ Xin hãy đóng các ứng dụng đang sử dụng các tập tin của Roblox,
   <data name="CustomTheme.Editor.OpenThemeDirectory" xml:space="preserve">
     <value>Mở thư mục chủ đề</value>
   </data>
-  <data name="Common.CreateNew" xml:space="preserve">
-    <value>Khởi tạo</value>
-  </data>
-  <data name="Common.Import" xml:space="preserve">
-    <value>Nhập</value>
-  </data>
   <data name="CustomTheme.Add.Title" xml:space="preserve">
     <value>Thêm chủ đề tùy chỉnh</value>
   </data>
@@ -1469,23 +1400,11 @@ Mặc định về {1}.</value>
   <data name="Menu.Appearance.CustomThemes.NoneSelected" xml:space="preserve">
     <value>Chưa chọn chủ đề tùy chỉnh nào.</value>
   </data>
-  <data name="Common.Rename" xml:space="preserve">
-    <value>Đổi tên</value>
-  </data>
-  <data name="Common.Edit" xml:space="preserve">
-    <value>Chỉnh sửa</value>
-  </data>
   <data name="Menu.Appearance.CustomThemes.DeleteFailed" xml:space="preserve">
     <value>Không thể xóa chủ đề tùy chỉnh {0}: {1}</value>
   </data>
   <data name="Menu.Appearance.CustomThemes.RenameFailed" xml:space="preserve">
     <value>Không thể đổi tên chủ đề tùy chỉnh {0}: {1}</value>
-  </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
-    <value>Cập nhật ở nền</value>
-  </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>Cập nhật Roblox ở nền thay vì đợi. Không khuyến khích cho mạng chậm. Cần ít nhất 3GB bộ nhớ trống để tính năng này hoạt động.</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
     <value>Đặt các thành phần giao diện tại đây</value>
@@ -1500,16 +1419,103 @@ Mặc định về {1}.</value>
     <value>Giao diện tuỳ chỉnh {0}</value>
     <comment>{0} is a string (e.g. '1', '1-1234')</comment>
   </data>
+  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
+    <value>Giao diện của bạn đã được lưu!</value>
+  </data>
+  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
+    <value>Không thể xem trước giao diện: {0}</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
+    <value>Không thể áp dụng các chỉnh sửa</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
+    <value>Các chỉnh sửa sẽ không được áp dụng trong lần chạy này.</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
+    <value>Không thể giải nén các tập tin</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
+    <value>Một số nội dung có thể bị thiếu. Cài đặt lại Roblox để sửa lỗi này.</value>
+  </data>
   <data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
     <value>Cho phép mở nhiều tiến trình</value>
   </data>
   <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
     <value>Cho phép mở hơn một tiến trình Roblox cùng một lúc.</value>
   </data>
-  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
-    <value>Giao diện của bạn đã được lưu!</value>
+  <data name="Common.Rename" xml:space="preserve">
+    <value>Đổi tên</value>
   </data>
-  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
-    <value>Không thể xem trước giao diện: {0}</value>
+  <data name="Common.CreateNew" xml:space="preserve">
+    <value>Khởi tạo</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
+    <value>Cập nhật ở nền</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
+    <value>Cập nhật Roblox ở nền thay vì đợi. Không khuyến khích cho mạng chậm. Cần ít nhất 3GB bộ nhớ trống để tính năng này hoạt động.</value>
+  </data>
+  <data name="Common.Import" xml:space="preserve">
+    <value>Nhập</value>
+  </data>
+  <data name="Common.Edit" xml:space="preserve">
+    <value>Chỉnh sửa</value>
+  </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>Về Fishstrap</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
+    <value>Phiên bản menu thoát ưa thích</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
+    <value>Đặt thành 0 nếu muốn sử dụng bộ mở khóa khung hình mặc định của Roblox.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
+    <value>Giới hạn tốc độ khung hình</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
+    <value>Bật/Tắt bằng [tổ hợp phím]({0}). Chỉ hoạt động nếu đang ở trong [Nhóm Fishstrap]({1}).</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
+    <value>Bật tính năng ẩn giao diện người dùng</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
+    <value>Chọn một cái sẽ bắc buộc bật trong tất cả các trò chơi. [Hãy cẩn thận, có thể gây ra các lỗi ánh sáng!]({0})</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
+    <value>Công nghệ ánh sáng ưa thích</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
+    <value>Vô hiệu hóa các hiệu ứng xử lý hậu kỳ</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
+    <value>Tắt thanh tiêu đề toàn màn hình</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
+    <value>Vô hiệu hóa bóng của người chơi</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
+    <value>Kích cỡ phông chữ</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
+    <value>Giá trị mặc định là 1. Điều chỉnh nó nếu bạn dùng phông chữ tùy chình.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
+    <value>Vô hiệu hóa cấu tạo bề mặt địa hình</value>
+  </data>
+  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
+    <value>Giấy phép Apache 2.0</value>
+  </data>
+  <data name="Menu.GBSEditor.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Graphics.Description" xml:space="preserve">
+    <value />
   </data>
 </root>

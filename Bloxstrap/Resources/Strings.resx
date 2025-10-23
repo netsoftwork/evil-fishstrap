@@ -788,12 +788,6 @@ Selecting 'No' will ignore this warning and continue installation.</value>
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
     <value>Emulate old character sounds</value>
   </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>Bring back the classic 'oof' death sound.</value>
-  </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
-    <value>Use old death sound</value>
-  </data>
   <data name="Menu.Mods.Title" xml:space="preserve">
     <value>Mods</value>
   </data>
@@ -1052,9 +1046,6 @@ If not, then please report this exception to the maintainers of this fork. Do NO
   </data>
   <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
     <value>Please wait for uninstallation to finish.</value>
-  </data>
-  <data name="About.Title" xml:space="preserve">
-    <value>About Fishstrap</value>
   </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>Licenses</value>
@@ -1671,28 +1662,28 @@ Defaulting to {1}.</value>
   <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
     <value>Some content may be missing. Force a Roblox reinstallation in settings to fix this.</value>
   </data>
-	<data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
+  <data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
     <value>Allow multi-instance launching</value>
   </data>
-	<data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
+  <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
     <value>Allows for having more than one Roblox game client instance open simultaneously.</value>
   </data>
-	<data name="Common.Rename" xml:space="preserve">
+  <data name="Common.Rename" xml:space="preserve">
     <value>Rename</value>
   </data>
-	<data name="Common.CreateNew" xml:space="preserve">
+  <data name="Common.CreateNew" xml:space="preserve">
     <value>Create New</value>
   </data>
-	<data name="Menu.Bloxstrap.Description" xml:space="preserve">
+  <data name="Menu.Bloxstrap.Description" xml:space="preserve">
     <value>Configure options related to Fishstrap's behaviour itself.</value>
   </data>
-	<data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
+  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
     <value>Background updates</value>
   </data>
-	<data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
+  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
     <value>Update Roblox in the background instead of waiting. Not recommended for slow networks. At least 3GB of free storage space is required for this feature to work.</value>
   </data>
-	<data name="Common.Import" xml:space="preserve">
+  <data name="Common.Import" xml:space="preserve">
     <value>Import</value>
   </data>
   <data name="Common.Edit" xml:space="preserve">
@@ -1708,33 +1699,96 @@ Defaulting to {1}.</value>
     <value>Waiting for data</value>
   </data>
   <data name="Menu.FastFlags.EditorInfo" xml:space="preserve">
-	  <value>Fast Flag editor only works on Roblox studio</value>
+    <value>Roblox only applies whitelisted FFlags. Double click to learn more.</value>
   </data>
   <data name="Common.Geometry" xml:space="preserve">
-	  <value>Geometry</value>
+    <value>Geometry</value>
   </data>
-	<data name="Menu.FastFlags.Geometry.Description" xml:space="preserve">
-	  <value>Control how Roblox renders 3D geometry.</value>
+  <data name="Menu.FastFlags.Geometry.Description" xml:space="preserve">
+    <value>Control how Roblox renders 3D geometry.</value>
   </data>
-	<data name="Menu.FastFlags.MeshDetail.Header" xml:space="preserve">
-	  <value>Mesh detail</value>
+  <data name="Menu.FastFlags.MeshDetail.Header" xml:space="preserve">
+    <value>Mesh detail</value>
   </data>
-	<data name="Menu.FastFlags.MeshDetail.Description" xml:space="preserve">
-	  <value>Control how detailed meshes appear in-game.</value>
+  <data name="Menu.FastFlags.MeshDetail.Description" xml:space="preserve">
+    <value>Control how detailed meshes appear in-game.</value>
   </data>
-	<data name="Menu.FastFlags.MeshDetail.LowQualityWarning" xml:space="preserve">
-	  <value>Lower qualities may cause meshes to disappear.</value>
+  <data name="Menu.FastFlags.MeshDetail.LowQualityWarning" xml:space="preserve">
+    <value>Lower qualities may cause meshes to disappear.</value>
   </data>
-	<data name="Common.LowestQuality" xml:space="preserve">
-	  <value>Lowest quality</value>
+  <data name="Common.LowestQuality" xml:space="preserve">
+    <value>Lowest quality</value>
   </data>
-	<data name="Common.HighestQuality" xml:space="preserve">
-	  <value>Highest quality</value>
+  <data name="Common.HighestQuality" xml:space="preserve">
+    <value>Highest quality</value>
   </data>
-	<data name="Common.UnknownStatus" xml:space="preserve">
-	  <value>Unknown status</value>
+  <data name="Common.UnknownStatus" xml:space="preserve">
+    <value>Unknown status</value>
   </data>
-	<data name="ContextMenu.ServerInformation.Notification.ServerNotTracked" xml:space="preserve">
-	  <value>Not tracked</value>
+  <data name="ContextMenu.ServerInformation.Notification.ServerNotTracked" xml:space="preserve">
+    <value>Not tracked</value>
+  </data>
+  <data name="Menu.GPSEditor.FramerateCap.Title" xml:space="preserve">
+    <value>Framerate Limit</value>
+  </data>
+  <data name="Menu.GPSEditor.FramerateCap.Description" xml:space="preserve">
+    <value>Unlock framerate limit for Roblox. Going above 240 FPS is not recommended.</value>
+  </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>About Fishstrap</value>
+  </data>
+  <data name="Common.GlobalSettings" xml:space="preserve">
+    <value>Global Settings</value>
+  </data>
+  <data name="Menu.GBSEditor.Description" xml:space="preserve">
+    <value>Set in-game settings from Fishstrap menu.</value>
+  </data>
+  <data name="Menu.GBSEditor.UITransparency.Title" xml:space="preserve">
+    <value>Transparency</value>
+  </data>
+  <data name="Menu.GBSEditor.UITransparency.Description" xml:space="preserve">
+    <value>Custom transparency for UI elements.</value>
+  </data>
+  <data name="Menu.GBSEditor.ReducedMotion.Title" xml:space="preserve">
+    <value>Reduced Motion</value>
+  </data>
+  <data name="Menu.GBSEditor.ReducedMotion.Description" xml:space="preserve">
+    <value>Removes the animation on the escape menu.</value>
+  </data>
+  <data name="Menu.GBSEditor.FontSize.Title" xml:space="preserve">
+    <value>Font Size</value>
+  </data>
+  <data name="Menu.GBSEditor.FontSize.Description" xml:space="preserve">
+    <value>Choose how large the font should appear.</value>
+  </data>
+  <data name="Menu.GBSEditor.GraphicsQuality.Title" xml:space="preserve">
+    <value>Graphics Quality</value>
+  </data>
+  <data name="Common.Other" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="Menu.GBSEditor.MouseSensitivity.Title" xml:space="preserve">
+    <value>Mouse Sensitivity</value>
+  </data>
+  <data name="Menu.GBSEditor.MouseSensitivity.Description" xml:space="preserve">
+    <value>Change how fast the camera will move in-game.</value>
+  </data>
+  <data name="Menu.GBSEditor.VREnabled.Title" xml:space="preserve">
+    <value>VR Enabled</value>
+  </data>
+  <data name="Menu.GBSEditor.GraphicsQuality.Description" xml:space="preserve">
+    <value>Set the graphics quality of your game</value>
+  </data>
+  <data name="Menu.GBSEditor.ReadOnly.Title" xml:space="preserve">
+    <value>Set as Read-Only</value>
+  </data>
+  <data name="Menu.GBSEditor.ReadOnly.Description" xml:space="preserve">
+    <value>Prevent Roblox from overriding global settings.</value>
+  </data>
+  <data name="Menu.FastFlags.FRMQualityOverride.Title" xml:space="preserve">
+    <value>FRM Quality Override</value>
+  </data>
+  <data name="Menu.FastFlags.FRMQualityOverride.Description" xml:space="preserve">
+    <value>Choose the FRM quality that Roblox should use.</value>
   </data>
 </root>

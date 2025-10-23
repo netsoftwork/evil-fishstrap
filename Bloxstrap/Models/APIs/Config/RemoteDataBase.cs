@@ -18,6 +18,9 @@ namespace Bloxstrap.Models.APIs.Config
         [JsonPropertyName("killFlags")]
         public bool KillFlags { get; set; } = false;
 
+        [JsonPropertyName("deeplinkUrl")]
+        public string DeeplinkUrl { get; set; } = "https://fishstrap.app/joingame";
+
         // package maps
         [JsonPropertyName("packageMaps")]
         public PackageMaps PackageMaps { get; set; } = new();

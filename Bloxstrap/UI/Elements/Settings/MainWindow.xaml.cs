@@ -10,6 +10,7 @@ using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 using Bloxstrap.UI.Elements.Settings.Pages;
 using SharpVectors.Scripting;
+using System.Drawing;
 
 namespace Bloxstrap.UI.Elements.Settings
 {
@@ -35,6 +36,9 @@ namespace Bloxstrap.UI.Elements.Settings
 
             if (showAlreadyRunningWarning)
                 ShowAlreadyRunningSnackbar();
+
+            gbs.Opacity = viewModel.GBSEnabled ? 1 : 0.5;
+            gbs.IsEnabled = viewModel.GBSEnabled; // binding doesnt work as expected so we are setting it in here instead
 
             LoadState();
 
@@ -90,6 +94,10 @@ namespace Bloxstrap.UI.Elements.Settings
         private async void SafeNavigate(Type page)
         {
             await Task.Delay(500); // same as below
+
+            if (page == typeof(GBSEditorPage) && !App.GlobalSettings.Loaded)
+                return; // prevent from navigating onto disabled page
+
             Navigate(page);
         }
 
