@@ -50,6 +50,37 @@ namespace Bloxstrap
             return null;
         }
 
+        public async Task<UserChannel?> GetUserChannel(string binaryType)
+        {
+            const string LOG_IDENT = "CookiesManager::GetUserChannel";
+
+            var request = new HttpRequestMessage()
+            {
+                Method = HttpMethod.Get,
+                RequestUri = new Uri($"https://clientsettings.roblox.com/v2/user-channel?binaryType={binaryType}")
+            };
+
+            request.Headers.Add("Cookie", $".ROBLOSECURITY={AuthCookie}");
+
+            try
+            {
+                HttpResponseMessage response = await App.HttpClient.SendAsync(request);
+                response.EnsureSuccessStatusCode();
+
+                string content = await response.Content.ReadAsStringAsync();
+                UserChannel channelInfo = JsonSerializer.Deserialize<UserChannel>(content)!;
+
+                return channelInfo;
+            }
+            catch (HttpRequestException ex)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Failed to get user channel");
+                App.Logger.WriteException(LOG_IDENT, ex);
+            }
+
+            return null;
+        }
+
         public async Task LoadCookies()
         {
             const string LOG_IDENT = "CookiesManager::LoadCookies";
