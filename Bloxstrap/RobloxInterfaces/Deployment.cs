@@ -181,7 +181,7 @@ namespace Bloxstrap.RobloxInterfaces
                 Method = HttpMethod.Get
             };
             
-            if (ChannelToken is not null)
+            if (!string.IsNullOrEmpty(ChannelToken))
             {
                 App.Logger.WriteLine(LOG_IDENT, "Got Roblox-Channel-Token");
                 request.Headers.Add("Roblox-Channel-Token", ChannelToken);
