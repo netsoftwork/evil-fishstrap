@@ -32,6 +32,15 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
             try
             {
+                bool isPrivate = await Deployment.IsChannelPrivate(channel);
+                if (App.Cookies.Loaded && isPrivate && string.IsNullOrEmpty(Deployment.ChannelToken))
+                {
+                    UserChannel? userChannel = await App.Cookies.GetUserChannel("WindowsPlayer");
+
+                    if (userChannel?.Token is not null)
+                        Deployment.ChannelToken = userChannel.Token;
+                }
+
                 ClientVersion info = await Deployment.GetInfo(channel);
 
                 ShowChannelWarning = info.IsBehindDefaultChannel;
@@ -40,7 +49,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 ChannelDeployInfo = new DeployInfo
                 {
                     Version = info.Version,
-                    VersionGuid = info.VersionGuid
+                    VersionGuid = isPrivate ? "version-private" : info.VersionGuid // we dont want to return the hash of private channels for obvious reason
                 };
 
                 App.State.Prop.IgnoreOutdatedChannel = true;

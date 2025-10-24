@@ -2,6 +2,7 @@
 using System;
 using System.Configuration;
 using System.Windows.Automation;
+using Windows.Win32.Foundation;
 
 namespace Bloxstrap.RobloxInterfaces
 {
@@ -144,6 +145,22 @@ namespace Bloxstrap.RobloxInterfaces
             location += resource;
 
             return location;
+        }
+
+        public static async Task<bool> IsChannelPrivate(string channel)
+        {
+            try
+            {
+                var response = await App.HttpClient.GetAsync($"https://clientsettingscdn.roblox.com/v2/client-version/WindowsPlayer/channel/{channel}");
+                response.EnsureSuccessStatusCode();
+            }
+            catch (HttpRequestException ex)
+            {
+                if (BadChannelCodes.Contains(ex.StatusCode))
+                    return true;
+            }
+
+            return false;
         }
 
         public static async Task<ClientVersion> GetInfo(string? channel = null)
