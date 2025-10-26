@@ -20,7 +20,22 @@
         <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_Bootstrapper_AllowCookieAccess_Title}"
             Description="{Binding Source={x:Static resources:Strings.Menu_Bootstrapper_AllowCookieAccess_Description}, Converter={StaticResource StringFormatConverter}, ConverterParameter='https://github.com/fishstrap/fishstrap/wiki/Account-Access#what-will-fishstrap-access-with-your-account'}">
-            <ui:ToggleSwitch IsChecked="{Binding CookieAccess, Mode=TwoWay}" />
+            <StackPanel Orientation="Horizontal">
+                <ui:SymbolIcon Symbol="Warning20" Margin="0,2,8,0" Foreground="Orange">
+                    <ui:SymbolIcon.Style>
+                        <Style TargetType="ui:SymbolIcon" BasedOn="{StaticResource {x:Type ui:SymbolIcon}}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding DataContext.CookieLoadingFailed, RelativeSource={RelativeSource AncestorType=ui:UiPage}}" Value="True">
+                                    <Setter Property="ui:SymbolIcon.Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ui:SymbolIcon.Style>
+                </ui:SymbolIcon>
+                <ui:ToggleSwitch IsChecked="{Binding CookieAccess, Mode=TwoWay}" />
+            </StackPanel>
         </controls:OptionControl>
 
         <controls:OptionControl 

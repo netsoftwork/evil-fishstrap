@@ -9,31 +9,33 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         public BehaviourViewModel()
         {
-
+            App.Cookies.StateChanged += (object? _, CookieState state) => CookieLoadingFailed = state != CookieState.Success && state != CookieState.Unknown;
         }
 
         public bool IsRobloxInstallationMissing => String.IsNullOrEmpty(App.RobloxState.Prop.Player.VersionGuid) && String.IsNullOrEmpty(App.RobloxState.Prop.Studio.VersionGuid);
-
-        public bool CookieLoadingFinished => true;
 
         public bool CookieAccess
         {
             get => App.Settings.Prop.AllowCookieAccess;
             set
             {
-                // TODO
-                // add some custom dialog saying what it will access
-                //if (value)
-                //{
-                //    var result = Frontend.ShowMessageBox("r u sure", System.Windows.MessageBoxImage.Information, System.Windows.MessageBoxButton.YesNo, System.Windows.MessageBoxResult.OK);
-
-                //    if (result != System.Windows.MessageBoxResult.OK)
-                //        return;
-                //}
-
                 App.Settings.Prop.AllowCookieAccess = value;
+                if (value)
+                    Task.Run(App.Cookies.LoadCookies);
 
                 OnPropertyChanged(nameof(CookieAccess));
+            }
+        }
+
+        // guh
+        private bool _cookieLoadingFailed;
+        public bool CookieLoadingFailed
+        {
+            get => _cookieLoadingFailed;
+            set
+            {
+                _cookieLoadingFailed = value;
+                OnPropertyChanged(nameof(CookieLoadingFailed));
             }
         }
 

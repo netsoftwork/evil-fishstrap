@@ -9,7 +9,16 @@ namespace Bloxstrap
 {
     public class CookiesManager
     {
-        public CookieState State = CookieState.Unknown;
+        private CookieState _state = CookieState.Unknown;
+
+        public EventHandler<CookieState>? StateChanged;
+        public CookieState State {
+            get => _state;
+            set {
+                _state = value;
+                StateChanged?.Invoke(this, value);
+            }
+        }
         public bool Loaded => Enabled && State == CookieState.Success;
         private bool Enabled => App.Settings.Prop.AllowCookieAccess;
 
