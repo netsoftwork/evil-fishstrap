@@ -19,7 +19,7 @@
 
         <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_Bootstrapper_AllowCookieAccess_Title}"
-            Description="{x:Static resources:Strings.Menu_Bootstrapper_AllowCookieAccess_Description}">
+            Description="{Binding Source={x:Static resources:Strings.Menu_Bootstrapper_AllowCookieAccess_Description}, Converter={StaticResource StringFormatConverter}, ConverterParameter='https://github.com/fishstrap/fishstrap/wiki/Account-Access#what-will-fishstrap-access-with-your-account'}">
             <ui:ToggleSwitch IsChecked="{Binding CookieAccess, Mode=TwoWay}" />
         </controls:OptionControl>
 

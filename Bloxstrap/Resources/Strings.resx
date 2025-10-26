@@ -1795,6 +1795,6 @@ Defaulting to {1}.</value>
     <value>Allow Fishstrap to access your Roblox account</value>
   </data>
   <data name="Menu.Bootstrapper.AllowCookieAccess.Description" xml:space="preserve">
-    <value>Provide access to Roblox's APIs with your authentication cookie.</value>
+    <value>Provide access to Roblox APIs using your authentication cookie. [What will Fishstrap access?]({0})</value>
   </data>
 </root>

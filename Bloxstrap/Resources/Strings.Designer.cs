@@ -3152,7 +3152,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Provide access to Roblox&apos;s APIs with your authentication cookie..
+        ///   Looks up a localized string similar to Provide access to Roblox APIs using your authentication cookie. [What will Fishstrap access?]({0}).
         /// </summary>
         public static string Menu_Bootstrapper_AllowCookieAccess_Description {
             get {
