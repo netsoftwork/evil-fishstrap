@@ -1237,6 +1237,10 @@ namespace Bloxstrap
                 if (_cancelTokenSource.IsCancellationRequested)
                     return;
 
+                // check if the package should be ignored
+                if (App.RemoteData.Prop.IgnoredPackages.Contains(package.Name))
+                    continue;
+
                 // download all the packages synchronously
                 await DownloadPackage(package);
 
