@@ -149,6 +149,9 @@ namespace Bloxstrap.RobloxInterfaces
 
         public static async Task<bool> IsChannelPrivate(string channel)
         {
+            if (channel == "production")
+                channel = "live";
+
             try
             {
                 var response = await App.HttpClient.GetAsync($"https://clientsettingscdn.roblox.com/v2/client-version/WindowsPlayer/channel/{channel}");
