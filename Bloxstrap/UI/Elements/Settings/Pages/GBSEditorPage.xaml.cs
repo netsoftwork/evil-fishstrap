@@ -27,6 +27,6 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         }
 
         private void ValidateUInt32(object sender, TextCompositionEventArgs e) => e.Handled = !UInt32.TryParse(e.Text, out uint _);
-        private void ValidateFloat(object sender, TextCompositionEventArgs e) => e.Handled = !float.TryParse(e.Text, out float _);
+        private void ValidateFloat(object sender, TextCompositionEventArgs e) => e.Handled = !Regex.IsMatch(e.Text, @"^\d*\.?\d*$");
     }
 }
