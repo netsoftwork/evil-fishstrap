@@ -934,6 +934,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unknown.
+        /// </summary>
+        public static string Common_Unknown {
+            get {
+                return ResourceManager.GetString("Common.Unknown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unknown status.
         /// </summary>
         public static string Common_UnknownStatus {
@@ -4311,7 +4320,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When in-game, you&apos;ll be able to see where your server is located via [ipinfo.io]({0})..
+        ///   Looks up a localized string similar to When in-game, you&apos;ll be able to see where your server is located via [rovalra.com]({0})..
         /// </summary>
         public static string Menu_Integrations_QueryServerLocation_Description {
             get {
@@ -4320,7 +4329,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Query server location.
+        ///   Looks up a localized string similar to Query server details.
         /// </summary>
         public static string Menu_Integrations_QueryServerLocation_Title {
             get {

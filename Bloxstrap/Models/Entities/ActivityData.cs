@@ -189,15 +189,20 @@ namespace Bloxstrap.Models.Entities
 
             try
             {
-                var ipInfo = await Http.GetJson<IPInfoResponse>($"https://ipinfo.io/{MachineAddress}/json");
+                var response = await Http.GetJson<RoValraGeolocation>($"https://apis.rovalra.com/v1/geolocation?ip={MachineAddress}");
+                var geolocation = response.Location;
 
-                if (string.IsNullOrEmpty(ipInfo.City))
-                    throw new InvalidHTTPResponseException("Reported city was blank");
-
-                if (ipInfo.City == ipInfo.Region)
-                    location = $"{ipInfo.Region}, {ipInfo.Country}";
+                if (geolocation is null)
+                    location = Strings.Common_Unknown;
                 else
-                    location = $"{ipInfo.City}, {ipInfo.Region}, {ipInfo.Country}";
+                {
+                    if (geolocation.City == geolocation.Region && geolocation.City == geolocation.Country)
+                        location = geolocation.Country;
+                    else if (geolocation.City == geolocation.Region)
+                        location = $"{geolocation.Region}, {geolocation.Country}";
+                    else
+                        location = $"{geolocation.City}, {geolocation.Region}, {geolocation.Country}";
+                }
 
                 GlobalCache.ServerLocation[MachineAddress] = location;
                 serverQuerySemaphore.Release();
@@ -211,7 +216,7 @@ namespace Bloxstrap.Models.Entities
                 serverQuerySemaphore.Release();
 
                 Frontend.ShowConnectivityDialog(
-                    string.Format(Strings.Dialog_Connectivity_UnableToConnect, "ipinfo.io"),
+                    string.Format(Strings.Dialog_Connectivity_UnableToConnect, "rovalra.com"),
                     Strings.ActivityWatcher_LocationQueryFailed,
                     MessageBoxImage.Warning,
                     ex
