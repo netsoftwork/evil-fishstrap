@@ -89,10 +89,13 @@ namespace Bloxstrap.Models.Entities
         private SemaphoreSlim serverQuerySemaphore = new(1, 1);
         private SemaphoreSlim serverTimeSemaphore = new(1, 1);
 
-        public string GetInviteDeeplink(bool launchData = true)
+        public string GetInviteDeeplink(bool launchData = true, bool useRobloxUri = false)
         {
-            string deeplink = $"{App.RemoteData.Prop.DeeplinkUrl}?placeId={PlaceId}"; // if our data isnt loaded it uses dummy data
-                                                                                      // we only wait for important data
+            // if our data isnt loaded it uses dummy data
+            // we only wait for important data
+
+            // we need useRobloxUri for rejoin feature
+            string deeplink = $"{(useRobloxUri ? "roblox://experiences/start" : App.RemoteData.Prop.DeeplinkUrl)}?placeId={PlaceId}";
 
             if (ServerType == ServerType.Private) // thats not going to work
                 deeplink += "&accessCode=" + AccessCode;
@@ -218,7 +221,7 @@ namespace Bloxstrap.Models.Entities
         {
             string playerPath = new RobloxPlayerData().ExecutablePath;
 
-            Process.Start(playerPath, GetInviteDeeplink(false));
+            Process.Start(playerPath, GetInviteDeeplink(false, true));
         }
     }
 }
