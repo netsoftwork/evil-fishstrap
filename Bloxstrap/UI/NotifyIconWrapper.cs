@@ -35,8 +35,8 @@ namespace Bloxstrap.UI
 
             _notifyIcon.MouseClick += MouseClickEventHandler;
 
-            if (_activityWatcher is not null && (App.Settings.Prop.ShowServerDetails || App.Settings.Prop.ShowServerUptime))
-                _activityWatcher.OnGameJoin += OnGameJoin;
+            if (_activityWatcher is not null && App.Settings.Prop.ShowServerDetails)
+                _activityWatcher.ShowNotif += ShowNotif;
 
             _menuContainer = new(_watcher);
             _menuContainer.Show();
@@ -54,7 +54,7 @@ namespace Bloxstrap.UI
         #endregion
 
         #region Activity handlers
-        public async void OnGameJoin(object? sender, EventArgs e)
+        public async void ShowNotif(object? sender, EventArgs e)
         {
             if (_activityWatcher is null)
                 return;
@@ -67,44 +67,20 @@ namespace Bloxstrap.UI
                 _ => ""
             };
 
-            bool locationActive = App.Settings.Prop.ShowServerDetails;
-            bool uptimeActive = App.Settings.Prop.ShowServerUptime;
-
-            string? serverLocation = "";
-            if (locationActive)
-                serverLocation = await _activityWatcher.Data.QueryServerLocation();
-
+            string? serverLocation = await _activityWatcher.Data.QueryServerLocation();
             string? serverUptime = "";
-            if (uptimeActive)
-            {
-                DateTime? serverTime = await _activityWatcher.Data.QueryServerTime();
-                TimeSpan _serverUptime = DateTime.UtcNow - serverTime.Value;
 
-                if (_serverUptime.TotalSeconds > 60)
-                    serverUptime = Time.FormatTimeSpan(_serverUptime);
-                else
-                    serverUptime = Strings.ContextMenu_ServerInformation_Notification_ServerNotTracked;
-            }
-
-            if (
-                string.IsNullOrEmpty(serverLocation) && locationActive ||
-                string.IsNullOrEmpty(serverUptime) && uptimeActive
-                )
-                return;
-
-            string notifContent = Strings.Common_UnknownStatus;
-
-            // since we dont have an actual localization, this is probably the best way of doing that
-            if (locationActive && !uptimeActive)
-                notifContent = String.Format(Strings.ContextMenu_ServerInformation_Notification_Text, serverLocation);
-            else if (!locationActive && uptimeActive)
-                notifContent = String.Format(Strings.ContextMenu_ServerInformationUptime_Notification_Text, serverUptime);
-            else if (locationActive && uptimeActive)
-                notifContent = String.Format(Strings.ContextMenu_ServerInformationUptimeAndLocation_Notification_Text, serverLocation, serverUptime);
+            DateTime? serverTime = await _activityWatcher.Data.QueryServerTime();
+            TimeSpan _serverUptime = DateTime.UtcNow - serverTime.Value;
+            serverUptime = Time.FormatTimeSpan(_serverUptime);
 
             ShowAlert(
                 title,
-                notifContent,
+                String.Format(
+                    Strings.ContextMenu_ServerDetails_Notification_Text,
+                    serverLocation,
+                    serverUptime
+                    ),
                 10,
                 (_, _) => _menuContainer.ShowServerInformationWindow()
             );

@@ -35,6 +35,8 @@ namespace Bloxstrap.Models.Entities
 
         public string JobId { get; set; } = string.Empty;
 
+        public DateTime? StartTime { get; set; }
+
         /// <summary>
         /// This will be empty unless the server joined is a private server
         /// </summary>
@@ -124,8 +126,7 @@ namespace Bloxstrap.Models.Entities
             DateTime? firstSeen = DateTime.UtcNow;
             try
             {
-                var serverTimeRaw = await Http.GetJson<RoValraTimeResponse>($"https://apis.rovalra.com/v1/servers/details?place_id={PlaceId}&server_ids={JobId}");
-
+                // this is needed for fishstrap.app/joingame uptime
                 var serverBody = new RoValraProcessServerBody
                 {
                     PlaceId = PlaceId,
@@ -139,16 +140,8 @@ namespace Bloxstrap.Models.Entities
                 // we want to return uptime quickly
                 _ = App.HttpClient.PostAsync("https://apis.rovalra.com/process_servers", postContent);
 
-
-                RoValraServer? server = null;
-
-                if (serverTimeRaw?.Servers != null && serverTimeRaw.Servers.Count > 0)
-                    server = serverTimeRaw.Servers[0];
-
-                // if the server hasnt been registered we will simply return UtcNow
-                // since firstSeen is UtcNow by default we dont have to check anything else
-                if (server?.FirstSeen != null)
-                    firstSeen = server.FirstSeen;
+                if (StartTime is not null)
+                    firstSeen = StartTime;
 
                 GlobalCache.ServerTime[JobId] = firstSeen;
                 serverTimeSemaphore.Release();
@@ -160,13 +153,6 @@ namespace Bloxstrap.Models.Entities
 
                 GlobalCache.ServerTime[JobId] = firstSeen;
                 serverTimeSemaphore.Release();
-
-                Frontend.ShowConnectivityDialog(
-                    string.Format(Strings.Dialog_Connectivity_UnableToConnect, "rovalra.com"),
-                    Strings.ActivityWatcher_LocationQueryFailed,
-                    MessageBoxImage.Warning,
-                    ex
-                );
             }
 
             return firstSeen;
