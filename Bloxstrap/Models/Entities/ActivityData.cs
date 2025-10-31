@@ -87,7 +87,6 @@ namespace Bloxstrap.Models.Entities
         public ICommand RejoinServerCommand => new RelayCommand(RejoinServer);
 
         private SemaphoreSlim serverQuerySemaphore = new(1, 1);
-        private SemaphoreSlim serverTimeSemaphore = new(1, 1);
 
         public string GetInviteDeeplink(bool launchData = true, bool useRobloxUri = false)
         {
@@ -108,57 +107,27 @@ namespace Bloxstrap.Models.Entities
             return deeplink;
         }
 
-        public async Task<DateTime?> QueryServerTime()
+        // we use rovalra's apis in fishstrap.app/joingame
+        public void ProcessServerRoValra()
         {
-            const string LOG_IDENT = "ActivityData::QueryServerTime";
-
             if (string.IsNullOrEmpty(JobId))
                 throw new InvalidOperationException("JobId is null");
 
             if (PlaceId == 0)
                 throw new InvalidOperationException("PlaceId is null");
 
-            await serverTimeSemaphore.WaitAsync();
-
-            if (GlobalCache.ServerTime.TryGetValue(JobId, out DateTime? time))
+            var serverBody = new RoValraProcessServerBody
             {
-                serverTimeSemaphore.Release();
-                return time;
-            }
+                PlaceId = PlaceId,
+                ServerIds = new() { JobId }
+            };
 
-            DateTime? firstSeen = DateTime.UtcNow;
-            try
-            {
-                // this is needed for fishstrap.app/joingame uptime
-                var serverBody = new RoValraProcessServerBody
-                {
-                    PlaceId = PlaceId,
-                    ServerIds = new() { JobId }
-                };
+            string json = JsonSerializer.Serialize(serverBody);
+            HttpContent postContent = new StringContent(json, Encoding.UTF8, "application/json");
 
-                string json = JsonSerializer.Serialize(serverBody);
-                HttpContent postContent = new StringContent(json, Encoding.UTF8, "application/json");
-
-                // we dont need to await it since its not as important
-                // we want to return uptime quickly
-                _ = App.HttpClient.PostAsync("https://apis.rovalra.com/process_servers", postContent);
-
-                if (StartTime is not null)
-                    firstSeen = StartTime;
-
-                GlobalCache.ServerTime[JobId] = firstSeen;
-                serverTimeSemaphore.Release();
-            }
-            catch (Exception ex)
-            {
-                App.Logger.WriteLine(LOG_IDENT, $"Failed to get server time for {PlaceId}/{JobId}");
-                App.Logger.WriteException(LOG_IDENT, ex);
-
-                GlobalCache.ServerTime[JobId] = firstSeen;
-                serverTimeSemaphore.Release();
-            }
-
-            return firstSeen;
+            // we dont need to await it since its not as important
+            // we want to return uptime quickly
+            _ = App.HttpClient.PostAsync("https://apis.rovalra.com/process_servers", postContent);
         }
 
         public async Task<string?> QueryServerLocation()

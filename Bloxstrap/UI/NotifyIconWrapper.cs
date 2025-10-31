@@ -68,11 +68,20 @@ namespace Bloxstrap.UI
             };
 
             string? serverLocation = await _activityWatcher.Data.QueryServerLocation();
-            string? serverUptime = "";
+            string? serverUptime;
 
-            DateTime? serverTime = await _activityWatcher.Data.QueryServerTime();
-            TimeSpan _serverUptime = DateTime.UtcNow - serverTime.Value;
-            serverUptime = Time.FormatTimeSpan(_serverUptime);
+            DateTime? serverTime = _activityWatcher.Data.StartTime;
+            if (serverTime is not null)
+            {
+                TimeSpan _serverUptime = DateTime.UtcNow - serverTime.Value;
+
+                if (_serverUptime.TotalMinutes == 0)
+                    serverUptime = "0 minutes"; // :sob:
+                else
+                    serverUptime = Time.FormatTimeSpan(_serverUptime);
+            }
+            else
+                serverUptime = Strings.Common_Unknown; // this should never happen
 
             ShowAlert(
                 title,

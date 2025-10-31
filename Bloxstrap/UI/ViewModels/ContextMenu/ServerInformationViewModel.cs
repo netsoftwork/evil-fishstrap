@@ -45,10 +45,12 @@ namespace Bloxstrap.UI.ViewModels.ContextMenu
             OnPropertyChanged(nameof(ServerLocation));
         }
 
-        public async void QueryServerUptime()
+        public void QueryServerUptime()
         {
-            DateTime? serverTime = await _activityWatcher.Data.QueryServerTime();
-            TimeSpan _serverUptime = DateTime.UtcNow - serverTime.Value;
+            DateTime? serverTime = _activityWatcher.Data.StartTime;
+            TimeSpan _serverUptime = TimeSpan.Zero; // uhh okay??
+            if (serverTime is not null)
+                _serverUptime = DateTime.UtcNow - serverTime.Value;
 
             ServerUptime = Time.FormatTimeSpan(_serverUptime);
 
