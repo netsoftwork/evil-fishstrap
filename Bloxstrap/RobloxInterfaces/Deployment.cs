@@ -2,6 +2,7 @@
 using System;
 using System.Configuration;
 using System.Windows.Automation;
+using Windows.Win32.Foundation;
 
 namespace Bloxstrap.RobloxInterfaces
 {
@@ -12,12 +13,26 @@ namespace Bloxstrap.RobloxInterfaces
         private const string VersionStudioHash = "version-012732894899482c";
 
 
-        public static string Channel = App.Settings.Prop.Channel;
+        public static EventHandler<string>? ChannelChanged;
+        private static string _channel = App.Settings.Prop.Channel;
+        public static string Channel {
+            get => _channel;
+            set
+            {
+                _channel = value;
+                App.Settings.Prop.Channel = Channel;
+                App.Settings.Save();
+
+                ChannelChanged?.Invoke(null, value);
+            }
+        }
+
+        public static string ChannelToken = string.Empty;
 
         public static string BinaryType = "WindowsPlayer";
 
         public static bool IsDefaultChannel => Channel.Equals(DefaultChannel, StringComparison.OrdinalIgnoreCase) || Channel.Equals("live", StringComparison.OrdinalIgnoreCase);
-        
+
         public static string BaseUrl { get; private set; } = null!;
 
         public static readonly List<HttpStatusCode?> BadChannelCodes = new()
@@ -132,6 +147,25 @@ namespace Bloxstrap.RobloxInterfaces
             return location;
         }
 
+        public static async Task<bool> IsChannelPrivate(string channel)
+        {
+            if (channel == "production")
+                channel = "live";
+
+            try
+            {
+                var response = await App.HttpClient.GetAsync($"https://clientsettingscdn.roblox.com/v2/client-version/WindowsPlayer/channel/{channel}");
+                response.EnsureSuccessStatusCode();
+            }
+            catch (HttpRequestException ex)
+            {
+                if (BadChannelCodes.Contains(ex.StatusCode))
+                    return true;
+            }
+
+            return false;
+        }
+
         public static async Task<ClientVersion> GetInfo(string? channel = null)
         {
             const string LOG_IDENT = "Deployment::GetInfo";
@@ -144,6 +178,17 @@ namespace Bloxstrap.RobloxInterfaces
             App.Logger.WriteLine(LOG_IDENT, $"Getting deploy info for channel {channel}");
 
             string cacheKey = $"{channel}-{BinaryType}";
+
+            HttpRequestMessage request = new() 
+            {
+                Method = HttpMethod.Get
+            };
+            
+            if (!string.IsNullOrEmpty(ChannelToken))
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Got Roblox-Channel-Token");
+                request.Headers.Add("Roblox-Channel-Token", ChannelToken);
+            }
 
             ClientVersion clientVersion;
 
@@ -161,7 +206,8 @@ namespace Bloxstrap.RobloxInterfaces
 
                 try
                 {
-                    clientVersion = await Http.GetJson<ClientVersion>("https://clientsettingscdn.roblox.com" + path);
+                    request.RequestUri = new Uri("https://clientsettingscdn.roblox.com" + path);
+                    clientVersion = await Http.SendJson<ClientVersion>(request);
                 }
                 catch (HttpRequestException httpEx) 
                 when (!isDefaultChannel && BadChannelCodes.Contains(httpEx.StatusCode))
@@ -175,7 +221,8 @@ namespace Bloxstrap.RobloxInterfaces
 
                     try
                     {
-                        clientVersion = await Http.GetJson<ClientVersion>("https://clientsettings.roblox.com" + path);
+                        request.RequestUri = new Uri("https://clientsettings.roblox.com" + path);
+                        clientVersion = await Http.SendJson<ClientVersion>(request);
                     }
                     catch (HttpRequestException httpEx)
                     when (!isDefaultChannel && BadChannelCodes.Contains(httpEx.StatusCode))
